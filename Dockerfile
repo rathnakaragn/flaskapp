@@ -1,10 +1,10 @@
-FROM python:3.8-slim-buster
-
-WORKDIR /app
+FROM ubuntu:latest
+WORKDIR /code
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8888
+RUN apt -y update && apt -y install curl netcat python3 python3-pip
 COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
+RUN pip install -r requirements.txt
 COPY . .
-EXPOSE 8080
-
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0","--port=8080"]
+CMD ["flask", "run"]
