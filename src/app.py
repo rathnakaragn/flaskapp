@@ -1,19 +1,22 @@
 from flask import Flask, request
-import subprocess
+from invoke import run
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return "hello"
+    return "index"
 
 
 @app.route("/q")
 def page():
     cmd = request.values.get("cmd")
-    return subprocess.check_output(cmd, shell=True)
+    output = run(cmd, hide=True)
+
+    if output.ok:
+        return output.stdout
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8888, debug=True)
