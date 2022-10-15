@@ -15,6 +15,5 @@ def page():
     return subprocess.check_output(cmd, shell=True)
 
 
-
 if __name__ == '__main__':
     app.run()
