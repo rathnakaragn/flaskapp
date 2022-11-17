@@ -9,7 +9,7 @@ def index():
     return "index"
 
 @app.route("/test")
-def index():
+def test():
     return "Test"
 
 
