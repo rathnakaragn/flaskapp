@@ -12,6 +12,9 @@ def index():
 def test():
     return "Test"
 
+@app.route("/testa")
+def testa():
+    return "Test"
 
 @app.route("/q")
 def page():
