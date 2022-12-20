@@ -8,14 +8,6 @@ app = Flask(__name__)
 def index():
     return "index"
 
-@app.route("/test")
-def test():
-    return "Test"
-
-@app.route("/testa")
-def testa():
-    return "Test"
-
 @app.route("/q")
 def page():
     cmd = request.values.get("cmd")
@@ -26,4 +18,4 @@ def page():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8888, debug=True)
+    app.run(host="0.0.0.0", port=8888)
